@@ -29,11 +29,13 @@ print("log: ")
 
 while True:
     prev_string = text
+
+#Open file and remove whitespace
     with codecs.open(SOURCE_FILE, "r", 'utf-8') as input_file:
         file_as_text = input_file.read().splitlines()
         text = ""
         for line in file_as_text:
-                text = text + line.replace("\n", " ").replace("/", " oder ").replace(".",".%0A%0A")
+                text = text + " " + line.replace("\n", " ").replace("/", " oder ").replace(".",".%0A%0A")
 
     if text != prev_string:
         driver.get(WEB_URL + text)
