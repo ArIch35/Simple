@@ -35,15 +35,15 @@ class FlappyBird(BasicMovement):
     def move(self, obj):
         old_x, old_y = obj.get_shape_position().get_position()
 
-        self.fly_control()
+        self.fly_control(obj)
 
         # check if moving in x-axis
         if self.x_is_moving is False:
             return Position(old_x, old_y - self.y_modifier)
         return Position(old_x + self.x_modifier, old_y)
 
-    def fly_control(self):
-        if self.colliding_celling or self.colliding_floor:
+    def fly_control(self,obj):
+        if obj.colliding_celling or obj.colliding_floor:
             self.set_altitude(0)
         if self.space_is_clicked:
             self.space_is_clicked = False
@@ -52,16 +52,15 @@ class FlappyBird(BasicMovement):
             self.reduce_altitude()
 
     @override
-    def physics_control(self, new_pos,ply):
+    def physics_control(self, ply):
         for obj in self.immovable_objects_list:
-            if self.check_collision_with_object(obj, ply):
+            if ply.check_collision_with_object(obj):
                 self.remove_object(self.get_object_by_list(obj, self.immovable_objects_list),
                                    self.immovable_objects_list)
         if len(self.immovable_objects_list) < self.total_random_object:
             size = (obj.get_shape_size().get_width() + obj.get_shape_size().get_length()) // 2
             self.generate_random_immovable_object(size, abs(len(self.immovable_objects_list) - self.total_random_object))
             self.update_immovable_object()
-        return new_pos
 
     def generate_random_immovable_object(self, immovable_object_size=10, immovable_object_total=5):
         grid_width = (self.screen_width - self.MARGIN_BORDER) // immovable_object_size - 1

@@ -5,15 +5,13 @@ class TestGravity(BasicMovement):
         super().__init__(width,length,(0,0,0))
 
     @override
-    def physics_control(self, new_pos, ply):
+    def physics_control(self, ply):
         for obj in self.objects_list:
             old_x, old_y = obj.get_shape_position().get_position()
             if obj == ply:
                 continue
-            if self.check_collision_with_object(obj,ply):
+            if ply.check_collision_with_object(obj):
                 obj.set_position(Position(old_x - self.x_modifier, old_y + self.gravity_modifier))
-                return new_pos
-        return new_pos
 
 #main 1
 tst = TestGravity(300,400,5,20)
