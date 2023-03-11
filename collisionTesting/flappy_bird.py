@@ -55,7 +55,6 @@ class FlappyBird(BasicMovement):
     def physics_control(self, new_pos,ply):
         for obj in self.immovable_objects_list:
             if self.check_collision_with_object(obj, ply):
-                print(obj)
                 self.remove_object(self.get_object_by_list(obj, self.immovable_objects_list),
                                    self.immovable_objects_list)
         if len(self.immovable_objects_list) < self.total_random_object:
@@ -72,20 +71,23 @@ class FlappyBird(BasicMovement):
             rand_x = random.randint(1, grid_height)
             rand_y = random.randint(1, grid_width)
 
-            if self.get_object_by_pos(Position(rand_x, rand_y), self.immovable_objects_list) is not None:
-                while self.get_object_by_list(Position(rand_x, rand_y)).get_id().find("OBJECT") == 1:
+            final_x_pos = (rand_x + 1) * immovable_object_size
+            final_y_pos = (rand_y + 1) * immovable_object_size
+
+            if self.get_object_by_pos(Position(final_x_pos, final_y_pos), self.immovable_objects_list) is not None:
+                while self.get_object_by_pos(Position(final_x_pos, final_y_pos), self.immovable_objects_list).get_id().find("OBJECT") == 1:
                     rand_x = random.randint(1, grid_width) + self.MARGIN_BORDER
                     rand_y = random.randint(1, grid_height) + self.MARGIN_BORDER
 
-            final_x_pos = (rand_x+1) * immovable_object_size
-            final_y_pos = (rand_y+1) * immovable_object_size
+            final_x_pos = (rand_x + 1) * immovable_object_size
+            final_y_pos = (rand_y + 1) * immovable_object_size
 
             self.add_immovable_object(Rectangle(obj_id, final_x_pos, final_y_pos, immovable_object_size,
                                                 immovable_object_size, (0, 255, 0)))
             self.composite_id += 1
 
 #main
-tst = FlappyBird(300,400,(0,0,0),4,8,20)
+tst = FlappyBird(300,400,(0,0,0),5,8,20)
 tst.set_FPS(30)
 tst.add_object(Rectangle("PLAYER1",0,320,30,60,(255,0,0)))
 tst.generate_random_immovable_object(10,1)
