@@ -1,7 +1,8 @@
-import sys
-from pygame.locals import *
+import pygame
 from custom_shape import *
-
+from size import *
+from pygame.locals import *
+import sys
 
 def override(function):
     return function
@@ -12,27 +13,19 @@ class Window:
     # Window is basically a abstract class that connect all other class and provide only the window.
     # When you want to create something just inherit it from window and override show().
 
-    def __init__(self, height, width, color):
-        self.screen_height = height
-        self.screen_width = width
-        self.surface = pygame.display.set_mode((height, width))
+    def __init__(self, window_size, color):
+        self.window_size = window_size
+        self.surface = pygame.display.set_mode((window_size.width, window_size.length))
         self.background_color = color
         self.shape_decider = ShapeDecider(self.surface)
         self.clock = pygame.time.Clock()
-        self.objects_list = []
+        self.movable_objects_list = []
         self.immovable_objects_list = []
-        self.objects_median_position = []
         self.FPS = 30
-
-    def get_screen_height(self):
-        return self.screen_height
-
-    def get_screen_width(self):
-        return self.screen_width
 
     def get_object_by_pos(self, pos, list_type):
         for obj in list_type:
-            if obj.get_shape_position() == pos:
+            if obj.position == pos:
                 return obj
         return None
 
@@ -44,36 +37,28 @@ class Window:
 
     def remove_object(self, shape, list_type):
         list_type.remove(shape)
-        shape.set_window(None)
 
     def get_all_objects_size_mean(self):
         median_width = 0
         median_length = 0
-        for index, obj in enumerate(self.objects_list):
+        for index, obj in enumerate(self.movable_objects_list):
             median_width += obj.get_shape_size().get_width()
             median_length += obj.get_shape_size().get_length()
         count_obj = index + 1
         return Size(median_width // count_obj, median_length // count_obj)
 
     def add_object(self, shape):
-        self.objects_list.append(shape)
-        self.objects_median_position.append(shape.get_median_position())
-        shape.set_window(self)
+        self.movable_objects_list.append(shape)
+        shape.set_collision_detector(self.window_size)
 
     def add_immovable_object(self, shape):
         self.immovable_objects_list.append(shape)
 
     def set_objects_to_correct_shape(self):
-        for obj in self.objects_list:
+        for obj in self.movable_objects_list:
             self.shape_decider.decide_shape(obj)
         for obj in self.immovable_objects_list:
             self.shape_decider.decide_shape(obj)
-
-    def set_all_median_position(self):
-        self.objects_median_position.clear()
-        for obj in self.objects_list:
-            pos_x, pos_y = obj.get_median_position().get_median_position()
-            self.objects_median_position.append(Position(pos_x, pos_y))
 
     def initialize_window(self):
         pygame.init()
@@ -97,22 +82,35 @@ class Window:
 # provide basic movement with wall collision
 # if want to create custom movement, override movement_control(),move() and physics_control(), other are not necessary
 class BasicMovement(Window):
-    def __init__(self, height, width, color, gravity=5, x_modifier=20):
-        super().__init__(height, width, color)
-        self.gravity_modifier = gravity
-        self.x_modifier = x_modifier
-        self.x_is_moving = False
+    def __init__(self, window_size, color, gravity=5, x_modifier=20):
+        super().__init__(window_size, color)
         self.MARGIN_BORDER = 40
+        self.object_gravity = gravity
+        self.object_x_modifier = x_modifier
+        self.x_is_moving = False
+
+    def set_gravity(self, value):
+        self.object_gravity = value
+
+        for obj in self.movable_objects_list:
+            obj.set_gravity(value)
+
+    def set_x_modifier(self, value):
+        self.object_x_modifier = value
+        self.x_is_moving = True
+
+        for obj in self.movable_objects_list:
+            obj.set_x_modifier(value)
+
+    @override
+    def add_object(self, shape):
+        shape.set_gravity(self.object_gravity)
+        shape.set_x_modifier(self.object_x_modifier)
+        self.movable_objects_list.append(shape)
+        shape.set_collision_detector(self)
 
     def set_border_margin(self, value):
         self.MARGIN_BORDER = value
-
-    def change_gravity(self, value):
-        self.gravity_modifier = value
-
-    def change_x_modifier(self, value):
-        self.x_modifier = value
-        self.x_is_moving = True
 
     @override
     def show(self):
@@ -130,11 +128,17 @@ class BasicMovement(Window):
         self.x_is_moving = False
 
     def update_movable_object(self):
-        for obj in self.objects_list:
-            new_pos = self.move(obj)
-            obj.control_wall_collision(new_pos)
+        for obj in self.movable_objects_list:
+            self.move(obj)
             self.physics_control(obj)
             self.shape_decider.decide_shape(obj)
+
+    def move(self, obj):
+        # check if moving in x-axis
+        if self.x_is_moving is False:
+            obj.move_x_axis()
+            return
+        obj.move_y_axis()
 
     def update_immovable_object(self):
         for obj in self.immovable_objects_list:
@@ -148,21 +152,13 @@ class BasicMovement(Window):
             if event.type == pygame.KEYDOWN:
                 self.key_control(event)
 
-    # returns Position Object
-    def move(self, obj):
-        old_x, old_y = obj.get_shape_position().get_position()
-        # check if moving in x-axis
-        if self.x_is_moving is False:
-            return Position(old_x, old_y + self.gravity_modifier)
-        return Position(old_x + self.x_modifier, old_y)
-
-    def key_control(self, event):
+    def key_control(self, event, obj):
         if event.key == pygame.K_SPACE:
-            self.change_gravity(self.gravity_modifier * -1)
+            obj.set_gravity(obj.gravity_modifier * -1)
         if event.key == pygame.K_RIGHT:
-            self.change_x_modifier(abs(self.x_modifier))
+            obj.set_x_modifier(abs(obj.gravity_modifier))
         if event.key == pygame.K_LEFT:
-            self.change_x_modifier(abs(self.x_modifier) * -1)
+            obj.set_x_modifier(abs(obj.gravity_modifier) * -1)
 
     # returns Position Object
     def physics_control(self, ply):
