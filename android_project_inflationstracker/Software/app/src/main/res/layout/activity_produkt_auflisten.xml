@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    tools:context=".KassenzettelAuflistenBildschirm"
+    android:id="@+id/produkt_list_drawer_layout">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_auflisten_produkt"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:clickable="true"
+            android:foreground="@drawable/add_white_24dp"
+            app:backgroundTint="#121835"
+            app:fabCustomSize="54dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            app:rippleColor="@color/design_default_color_background"
+            app:srcCompat="@drawable/add_white_24dp" />
+
+        <ImageView
+            android:id="@+id/switch_mode_button"
+            android:layout_width="40dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="10dp"
+            android:tag="einzel"
+            app:layout_constraintBottom_toTopOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/produkt_list_toolbar"
+            app:srcCompat="@drawable/ic_baseline_view_agenda_24" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/produkt_list_toolbar"
+            android:layout_width="418dp"
+            android:layout_height="50dp"
+            android:background="#121835"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="ExtraText">
+
+            <ImageView
+                android:id="@+id/produkt_burger_menu"
+                android:layout_width="42dp"
+                android:layout_height="39dp"
+                android:scrollbarThumbHorizontal="@drawable/menu_white_24dp"
+                android:scrollbarTrackVertical="@drawable/menu_white_24dp"
+                android:translationX="-10dp"
+                app:srcCompat="@drawable/menu_white_24dp"
+                tools:layout_editor_absoluteX="6dp"
+                tools:layout_editor_absoluteY="3dp" />
+
+            <ImageView
+                android:id="@+id/produkt_list_toggle_filter"
+                android:layout_width="37dp"
+                android:layout_height="28dp"
+                android:translationX="300dp"
+                app:srcCompat="@drawable/white_filter_24dp"
+                tools:layout_editor_absoluteX="358dp"
+                tools:layout_editor_absoluteY="11dp" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="342dp"
+            android:layout_height="661dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/produkt_list_toolbar"
+            app:layout_constraintVertical_bias="0.388">
+
+            <ListView
+                android:id="@+id/produktAuflisten_List"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#121835"
+                android:clipToPadding="false"
+                android:divider="@color/dark_blue_v1"
+                android:dividerHeight="16.0sp"
+                android:padding="16dip"></ListView>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/produkt_list_nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/side_menu"
+        android:layout_gravity="start">
+
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

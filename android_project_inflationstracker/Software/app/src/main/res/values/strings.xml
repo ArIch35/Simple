@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">popup_2</string>
+    <string name="select_item"> Selected Item: </string>
+
+    <string-array name="products">
+        <item>Neues Produkt</item>
+        <item>Letzte Produkte</item>
+        <item>Bekannte Produkte</item>
+    </string-array>
+
+    <string-array name="filter">
+        <item>Preis</item>
+        <item>Name</item>
+        <item>Laden</item>
+        <item>Prozentualer Preisanstieg</item>
+        <item>Absoluter Preisanstieg</item>
+    </string-array>
+    >
+
+    <string-array name="sort">
+        <item>Preis</item>
+        <item>Datum</item>
+        <item>Gewicht</item>
+        <item>Laden</item>
+    </string-array>
+</resources>

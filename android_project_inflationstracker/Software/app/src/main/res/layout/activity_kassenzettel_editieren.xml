@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_dhuifbuerbuz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".KassenzettelEinzel">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarOben"
+        android:layout_width="416dp"
+        android:layout_height="58dp"
+        android:background="#121835"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/listViewProdukt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/back_button_edit"
+            android:layout_width="29dp"
+            android:layout_height="28dp"
+            android:src="@drawable/backwarrow_white_24dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/laden_edit"
+        android:layout_width="333dp"
+        android:layout_height="97dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Name"
+        android:textAllCaps="true"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbarOben"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ListView
+        android:id="@+id/listViewProdukt"
+        android:layout_width="395dp"
+        android:layout_height="349dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357">
+
+    </ListView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editKnopf"
+        android:layout_width="39dp"
+        android:layout_height="37dp"
+        android:clickable="true"
+        android:foreground="@drawable/add_white_24dp"
+        android:src="?attr/selectableItemBackground"
+        android:translationX="175dp"
+        app:backgroundTint="#121835"
+        app:layout_constraintBottom_toTopOf="@+id/toolbarUnten"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listViewProdukt"
+        app:layout_constraintVertical_bias="0.508" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="441dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarOben"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarUnten"
+            android:layout_width="444dp"
+            android:layout_height="69dp"
+            android:background="#121835"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="💾"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:icon="@drawable/save_white_34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_photo"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="144dp"
+            android:backgroundTint="@color/teal_700"
+            android:gravity="center"
+            android:text="📷"
+            android:textAlignment="gravity"
+            android:textSize="20sp"
+            app:icon="@drawable/camera_white_34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_del"
+            app:layout_constraintHorizontal_bias="0.416"
+            app:layout_constraintStart_toStartOf="@+id/toolbarUnten"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_del"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="48dp"
+            android:backgroundTint="@color/teal_700"
+            android:text="🗑"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:icon="@drawable/delete_white_34dp"
+            app:iconGravity="textTop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.927"
+            app:layout_constraintStart_toStartOf="@+id/toolbarUnten"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
