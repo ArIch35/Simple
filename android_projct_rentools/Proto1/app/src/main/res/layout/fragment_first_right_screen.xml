@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_search_first_screen"
+        android:layout_gravity="end"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FirstRightScreen"
+        >
+
+        <LinearLayout
+            android:id="@+id/container_search_bar_first_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.widget.SearchView
+                android:id="@+id/search_bar_first_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:queryHint="@string/city_first">
+
+            </android.widget.SearchView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_search_result_first_screen"
+            android:layout_width="match_parent"
+            android:layout_height="775dp"
+            android:orientation="vertical"
+            android:translationY="46dp">
+
+            <ListView
+                android:id="@+id/list_view_result_first_screen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>

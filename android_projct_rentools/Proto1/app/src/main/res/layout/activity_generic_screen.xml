@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_generic_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".OwnerProperties">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_toolbar_generic_screen"
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_all_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#351233"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/back_arrow_all_screen"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/desc"
+            android:translationX="-10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:srcCompat="@drawable/arrowback_white_24dp" />
+
+        <TextView
+            android:id="@+id/name_generic_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/toolbar_all_screen"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/list_generic_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#603A5D"
+        android:dividerHeight="10.0sp"
+        android:divider="@color/purple_used"/>
+
+</LinearLayout>

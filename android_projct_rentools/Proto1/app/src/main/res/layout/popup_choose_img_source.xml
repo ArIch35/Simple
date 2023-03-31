@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_popup_choose"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#603A5D">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_popup_choose"
+        android:layout_width="410dp"
+        android:layout_height="242dp"
+        android:background="#351233"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
+
+        <Button
+            android:id="@+id/camera_button_popup_choose"
+            android:layout_width="321dp"
+            android:layout_height="81dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/oswald_bold"
+            android:text="@string/camera"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.155" />
+
+        <Button
+            android:id="@+id/gallery_button_popup_choose"
+            android:layout_width="321dp"
+            android:layout_height="81dp"
+            android:background="@color/white"
+            android:fontFamily="@font/oswald_bold"
+            android:gravity="center"
+            android:text="@string/gallery"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.826" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proto1</string>
+    <string name="title_activity_sliding_bar">SlidingBar</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_wish_list">WishList</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="desc">null</string>
+
+    <string name="not_given">Not Given</string>
+    <string name="Any">Any</string>
+    <string name="Info">Click for more Info</string>
+
+    //Login Screen
+    <string name="username">Benutzername</string>
+    <string name="password">Kennwort</string>
+    <string name="save_data">Anmeldendaten Speichern</string>
+    <string name="login">Anmelden</string>
+
+    //First Screen
+    <string name="month">Monat</string>
+    <string name="city_first">Stadt</string>
+
+    //Menu
+    <string name="info">Klicken Sie für mehr Infos</string>
+    <string name="wishlist">Wunschliste</string>
+    <string name="logout">Abmelden</string>
+    <string name="filter">Filter</string>
+    <string name="contacts">Kontakte</string>
+    <string name="properties">Immobilien</string>
+    <string name="language">Sprache: Deutsch</string>
+    <string name="profile">Profil</string>
+
+    //Search Bar
+    <string name="city">    Stadt"               ":" "</string>
+
+    //House View
+    <string name="address"> Adresse"          ":" "</string>
+    <string name="date">    Verfügbar Ab" ":" "</string>
+    <string name="size">    Größe"              ":" "</string>
+    <string name="price">   Preis"                ":" "</string>
+    <string name="duration">    Zeitdauer"        ":" "</string>
+    <string name="total_rent">  Warmmiete"    ":" "</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="furnished">   Möbliert"          ":" "</string>
+    <string name="description">Beschreibung" ":" "</string>
+
+    //Chat Screen
+    <string name="send_text">Schicken</string>
+    <string name="your_message">Ihre Nachricht</string>
+
+    //Filter
+    <string name="min_size">Mindestgröße</string>
+    <string name="sort">Sortieren nach</string>
+    <string name="asc">Aufsteigend</string>
+    <string name="descend">Absteigend</string>
+    <string name="save">Speichern</string>
+    <string name="clear">Löschen</string>
+    <string name="price_filter">Preis</string>
+    <string name="duration_filter">Zeitdauer</string>
+
+    //Personal Screen
+    <string name="name">Name</string>
+    <string name="age">Alter</string>
+    <string name="gender">Geschlecht</string>
+    <string name="telp">Telefonnummer</string>
+    <string name="change_pass">Kennwort Ändern</string>
+    <string name="old_pass">Altes Kennwort</string>
+    <string name="new_pass">Neues Kennwort</string>
+    <string name="confirm_pass">Neues Kennwort Nochmal</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galerie</string>
+
+    //Contact Adapter
+    <string name="empty">Empty</string>
+
+    //First Screen
+    <string name="filter_success">Filter Erfolg Mit" "</string>
+    <string name="result">" "Ergebnis</string>
+    <string name="filter_failed">Filter Fehlgeschlagen!</string>
+
+    //Wishlist
+    <string name="added_wishlist">Zur Wunschliste Hinzugefügt</string>
+    <string name="remove_wishlist">Aus Wunschliste entfernt</string>
+
+    //Login
+    <string name="limit_reaced">Grenze Erreicht!</string>
+    <string name="success">Erfolgreich!</string>
+    <string name="conn_failed">Verbindung Fehlgeschlagen!</string>
+    <string name="username_false">Benutzername Nicht Gefunden!</string>
+    <string name="pass_false">Falsches Kennwort!</string>
+
+    //Personal
+    <string name="pass_lt8">Neues Passwort Muss 8 Zeichen Enthalten</string>
+    <string name="pass_like_old">Neue Passwort Darf Nicht Das Gleiche Sein Wie Das Alte</string>
+    <string name="pass_not_like_confirm">Neues Passwort Ist Anders Mit Bestätigung</string>
+    <string name="no_letter">Bitte Keine Zeichen Schreiben!</string>
+</resources>
