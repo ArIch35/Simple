@@ -17,5 +17,5 @@
 ### Code
 - [Code](./Proto1/app/src/main/java/com/example/proto1) beinhaltet die gesamte Code.
 
-## Meilenstein 6
-[Protokol Human Computer Interaction.pdf](/Protokol Human Computer Interaction.pdf) beinhaltet das Protokoll der Designs. Das Protokoll beinhaltet die Bilder, die Funktionen bzw. die Namen der entsprechenden Dateien.
+## Documentation
+[Protokol Human Computer Interaction.pdf](./Protokol Human Computer Interaction.pdf) beinhaltet das Protokoll der Designs. Das Protokoll beinhaltet die Bilder, die Funktionen bzw. die Namen der entsprechenden Dateien.
