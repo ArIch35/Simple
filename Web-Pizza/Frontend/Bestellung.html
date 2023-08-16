@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head lang="de">
+    <title>Bestellung</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link href="https://fonts.cdnfonts.com/css/cafe-francoise" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/brandon-grotesque-regular" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        
+        <div class="flex-main-horizontal-container">
+            <h1 class="flex-main-item" id="title-papa">Papa Giovanni-Pietro's Pizza</h1>
+
+            <div class="flex-main-container">
+                <nav class="wrapper">
+                    <div class="flex-main-item" id="menu-container">     
+                        <a class="navigation-menu-item" href="Übersicht.html">Übersicht</a>
+                        <a class="navigation-menu-item" href="Bestellung.html">Bestellung</a>
+                        <a class="navigation-menu-item" href="Bäcker.html">Bäcker</a>
+                        <a class="navigation-menu-item" href="Lieferant.html">Lieferant</a>
+                </div>
+                </nav>
+                
+                <section class="flex-main-item" id="speisekarte">
+                <h2 class="subtitle">Speisekarte</h2>
+                <div id="flex-pizza-container"></div>
+                </section> 
+            
+                <form method="post" class="flex-main-item" id="warenkorb">
+                    <h2 class="subtitle">Warenkorb</h2>
+                    
+                    <fieldset class="flex-fieldset-container" id="aktuelle-auswahl">
+                        <legend class="fieldset-legend">Aktuelle Auswahl</legend>
+                            <select name="pizza-list[]" id="pizza_list" size="2" multiple></select>
+                            
+                            <div id="holder-auswahl">
+                                <div class="wrapper">
+                                    <button class="button-modded" id="delete-one-pizza" type="button" disabled>Eine/Mehrere Auswahl löschen</button>
+                                </div>
+                                <div class="wrapper">
+                                    <button class="button-modded" id="delete-all-pizza" type="button">Alle Auswahl löschen</button>
+                                </div>
+                                <p>Gesamtpreis: <span id="price">0</span> &euro;</p>
+                            </div>
+                     </fieldset>
+            
+                     <fieldset class="flex-fieldset-container" id="verpackungswunsch">
+                        <legend class="fieldset-legend">Verpackungswunsch</legend>
+                            <div class="packing-option">
+                                <input type="radio" id="einweg" name="wunsch" value="Einweg">
+                                <label for="einweg">Einweg</label> 
+                            </div>
+                        
+                            <div class="packing-option">
+                            <input type="radio" id="mehrweg" name="wunsch" value="Mehrweg">
+                            <label for="mehrweg">Mehrweg</label>       
+                            </div>
+                        
+                            <div class="packing-option">
+                                <input type="radio" id="ohne" name="wunsch" value="Ohne">
+                                <label for="ohne">Ohne</label> 
+                            </div>    
+                            
+                            <div id="radio_warning" class="alert_box"></div>
+                     </fieldset>
+            
+                     <fieldset class="flex-fieldset-container" id="daten">
+                        <legend class="fieldset-legend">Persönlichen Daten</legend>
+                           <div class="info-container">
+                                <label class="block-label" for="name">Name</label>
+                                <input class="info-input" type="text" id="name" name="name" placeholder="Max Muster" >
+                                <div id="name_warning" class="alert_box"></div>
+                            </div>
+                            <div class="info-container">
+                                <label class="block-label" for="email">Email</label>
+                                <input class="info-input" type="text" id="email" name="email" placeholder="max.muster@gmail.com">
+                                <div id="email_warning" class="alert_box"></div>
+                            </div>
+                            <div class="info-container">
+                                <label class="block-label" for="adresse">Addresse</Address></label>
+                                <input class="info-input" type="text" id="addresse" name="addresse" placeholder="Musterstr. 1, 12345 Musterstadt">
+                                <div id="address_warning" class="alert_box"></div>
+                            </div>
+            
+                            <div class="wrapper">
+                                <input class="button-modded" type="submit" id="submit_button" value="Bestellen" disabled>
+                            </div>
+            
+                            <div class="wrapper">
+                                <input class="button-modded" type="reset" id="reset_all_button" value="Zurücksetzen"> 
+                            </div>
+                     </fieldset>
+                    </form>
+
+                    <section class="flex-main-item" id="bestellstatus">
+                        <h2 class="subtitle">Bestellstatus</h2>
+                        <table id="order-table">
+                            <tr>
+                              <th class="table-member">Gewähltes Gericht</th>
+                              <th class="table-member">Aktueller Status</th>
+                            </tr>
+                        </table>
+                        </section>
+
+                    
+            </div>
+        
+            <footer class="flex-main-item" id="hinweis">Bei Fragen oder Problemen bitte Mail an /dev/null</footer>
+            
+            </div>
+    </div>
+    
+    <script src="scriptV2.js"></script>
+</body>

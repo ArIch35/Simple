@@ -1,0 +1,259 @@
+/* STYLES ÜBERSICHT */
+body{
+    font-family: "Gill Sans", sans-serif;;
+    font-size: 20px;
+    background-color: rgb(172, 61, 10);  
+}
+
+.flex-main-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-main-horizontal-container{
+    display: flex;
+    min-width: 450px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgb(234, 247, 204),rgba(234, 247, 204,0.4));
+    flex-direction: column;
+    margin: auto;
+}
+
+.flex-main-item{
+    margin:30px;
+}
+
+#flex-pizza-container{
+    border: 2.5px solid rgb(117, 13, 16);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+#flex-pizza-container:hover{
+    box-shadow: 6px 6px 2px 1px rgba(117, 13, 16,0.2);
+}
+
+.flex-pizza-item{
+    margin:25px 25px 20px 20px;
+    color: 	rgb(20, 2, 3);
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    text-align: center;
+    flex: 1 0 11%;
+}
+
+.flex-pizza-item:hover{
+    transform: scale(1.08);
+    box-shadow: 3px 3px 2px 1px rgba(117, 13, 16,0.2);
+    color: 	rgb(241, 68, 72);
+    background-color: rgba(172, 61, 10,0.07);
+}
+
+.flex-fieldset-container{
+    border-color: rgb(117, 13, 16);
+    display: flex;
+    flex-direction: column;
+    margin: 25px 5px 25px 5px;
+
+    color: 	rgb(20, 2, 3);
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    
+    text-align: center;
+    
+}
+
+.flex-fieldset-container:hover{
+    box-shadow: 6px 6px 2px 1px rgba(117, 13, 16,0.2);
+}
+
+.packing-option:hover{
+    color: 	rgb(241, 68, 72);
+    transform: translateX(-5px);
+    font-weight: bold;
+}
+
+.subtitle{
+    font-family: 'Café Françoise', sans-serif;
+    font-style: italic;
+    color: rgb(241, 68, 72);
+}
+
+.fieldset-legend{
+    color: rgb(243, 109, 111);
+    font-family: 'Café Françoise', sans-serif;
+    font-style: normal;
+}
+
+.button-modded{
+    color: 	rgb(179, 86, 0);
+    background-color: rgba(187, 138, 141,0.7);
+    border: none;
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    font-size: 17px;
+    width: fit-content;
+    box-shadow: none;
+    text-align: center;
+}
+
+.button-modded:hover{
+    color: rgb(252, 0, 0);
+    transform: scale(1.12);
+    background-color: rgb(228, 195, 165);
+    box-shadow: 3px 3px 2px 1px rgba(117, 13, 16,0.2);
+}
+
+.button-modded:disabled{
+    color: 	rgb(179, 86, 0);
+    background-color: rgba(228, 195, 165,0.2);
+    box-shadow: none;
+    transform: scale(1);
+}
+
+.info-container{
+    align-content: center;
+    margin: 10px;
+}
+
+.info-input{
+    font-size: 16px;
+    background-color: rgb(229, 248, 182);
+}
+
+.wrapper{
+    margin: 20px 20px 0px 20px;
+}
+
+.navigation-menu-item{
+    color: 	rgb(20, 2, 3);
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid rgb(117, 13, 16); 
+}
+
+.navigation-menu-item:hover{
+    transform: scale(1.2);
+    box-shadow: 6px 6px 2px 1px rgba(117, 13, 16,0.2);
+    background-color: rgba(172, 61, 10,0.07);
+    color: rgb(252, 0, 0);
+}
+
+.desc-pizza{
+    text-align: center;
+}
+
+#title-papa{
+    color: rgb(175, 30, 30);
+    font-family: 'Dokyo', sans-serif;
+    -webkit-text-stroke: 1px rgb(227, 188, 159);
+    text-shadow: black 1px 0 1px;
+    text-align: center;
+}
+
+#menu-container{
+    border: 2.5px solid rgb(117, 13, 16);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    max-width: 180px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu-container:hover{
+    box-shadow: 6px 6px 2px 1px rgba(117, 13, 16,0.2);
+}
+
+#pizza_list{
+    color: 	rgb(20, 2, 3);
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    font-size: 22px;
+    background-color: rgb(229, 248, 182);
+    width:200px;
+}
+
+.block-label{
+    display: block;
+}
+
+#aktuelle-auswahl{
+    display: flex;
+    flex-direction: row;
+    min-width: 350px;
+}
+
+#holder-auswahl{
+    display: inline-block;
+    flex-grow: 1;
+    width: 50px;
+}
+
+#hinweis{
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgb(234, 247, 204),rgba(234, 247, 204,0.4));
+    min-height: 50px;
+    text-align: center;
+    top: 50%;
+}
+
+.alert_box{
+    margin: auto;
+    align-content: center;
+    width: fit-content;
+    color: rgb(43,43,43);
+    font-size: 16px;
+    display: none;
+    
+}
+
+.alert_box::before{
+    background-image:url("warn_icon.png");
+    background-size: 20px 15px;
+    display: inline-block;
+    width: 15px; 
+    height: 15px;
+    content:"";
+}
+
+#order-table{
+    border-collapse: collapse;
+    white-space:nowrap;
+    width:100%;
+}
+
+.table-member{
+    font-family: 'Brandon Grotesque Light', sans-serif;
+    padding: 15px;
+    color: rgb(43,43,43);
+    border: 2.5px solid rgb(117, 13, 16);
+}
+
+#bestellstatus{
+    display: none;
+}
+
+.button-backer{
+    background-color: rgb(82, 0, 0);
+    color: white;
+    border-color: rgb(207,166,120);
+}
+
+.button-backer:disabled{
+    background-color: rgba(82, 0, 0,0.3);
+    color: rgb(109, 100, 100);
+    border-color: rgba(207,166,120,0.3);
+}
+
+@media (max-width: 1000px) {
+    .flex-main-container { flex-direction: column; }
+    #menu-container{max-width: none;}   
+}
+
+/* STYLES */
+
