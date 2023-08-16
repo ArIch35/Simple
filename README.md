@@ -1,4 +1,4 @@
-# test
+# Projects
 
 ### Inflationstracker
 App to track inflation (not too refactored, some codes are dirty).
@@ -14,3 +14,6 @@ A  collection of some random python code (one of them I used to translate block 
 
 ### serverTesting
 A simple php and js code that I use for testing get and post functions.
+
+### Web-Pizza
+A simple web that simulates a pizza delivery system with overwiew, baker and sender using HTML,CSS,Javascript and PHP. Previously was made for "Praktikum".
