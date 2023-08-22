@@ -17,3 +17,6 @@ A simple php and js code that I use for testing get and post functions.
 
 ### Web-Pizza
 A simple web that simulates a pizza delivery system with overwiew, baker and sender using HTML,CSS,Javascript and PHP. Previously was made for "Praktikum".
+
+### Test-React
+A small project from "React Crash Course" from "Academymind" but with some different styling and a database using express.js. Used as Testing for learning React and Express.
