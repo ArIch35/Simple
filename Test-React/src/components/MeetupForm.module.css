@@ -1,0 +1,60 @@
+.lab{
+    text-align: start;
+    color: rgb(18, 19, 19);
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 5px;
+}
+
+.form{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.holder{
+    margin: 5px 10px 5px 10px;
+}
+
+.holder_left{
+    margin: 5px 6px 5px 10px;
+    margin-left: auto;
+}
+
+.inp{
+    margin: 5px;
+    width: 30vw;
+}
+
+.area{
+    margin: 5px;
+    width: 30vw;
+    height: 5vw;
+}
+
+.btn {
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgb(18, 19, 19);
+    color: white;
+    border: 1px solid rgb(18, 19, 19);
+    margin: 10px;
+  }
+  
+  .btn:hover {
+    background-color: rgba(18, 19, 19,0.85);
+    border-color: rgba(18, 19, 19,0.85);
+  }
+
+  @media (max-width: 500px) {
+    .inp{width: 60vw;}
+    .area{
+        width: 60vw;
+        height: 25vw;
+    }
+  }
