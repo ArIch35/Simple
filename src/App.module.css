@@ -1,0 +1,16 @@
+.all_ctr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kreon', serif;
+}
+
+.main_ctr{
+    background-color: #8FD8EF;
+    width: 90%;
+    border-radius: 20px;
+    z-index: 1;
+    position: relative;
+}
+

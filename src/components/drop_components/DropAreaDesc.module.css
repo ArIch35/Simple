@@ -1,0 +1,33 @@
+.container_desc{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px;
+}
+
+.desc, .desc_highlight{
+    color: #001F3F;
+    font-size: 18px;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.desc_highlight{
+    color: #001f3f5f;
+}
+
+.btn,.btn_highlight {
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #000B1A;
+    color: white;
+    border: 1px solid #000B1A;
+    margin: 10px;
+}
+
+.btn_highlight{
+    background-color: #000b1a4b;
+    border: 1px solid #000B1A4b;
+}

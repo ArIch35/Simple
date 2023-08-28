@@ -1,0 +1,11 @@
+.drop, .drop_higlight{
+    border: 2.5px dashed #0F2E3F;
+    height: fit-content;   
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.drop_higlight{
+    border: 2.5px dashed #0f2e3f48;
+}

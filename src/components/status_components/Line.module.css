@@ -1,0 +1,13 @@
+.line{
+    border: 1.5px dashed #0F2E3F;
+    display: block;
+    height: 0;
+}
+
+.line_ctr{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    margin: 0px 2px 0px 2px;
+}

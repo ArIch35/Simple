@@ -1,0 +1,18 @@
+.itm_ctr{
+    width: 90%;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(225, 218, 218, 0.62);
+    overflow: hidden;
+    box-shadow: 6px 6px 2px 1px rgba(114, 114, 144, 0.2);
+    background-color: whitesmoke;
+}
+
+.img{
+    width: 100%;
+    height: auto;
+}
+
+.title{
+    border: 1px solid rgba(225, 218, 218, 0.62);
+}

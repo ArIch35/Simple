@@ -1,0 +1,19 @@
+.popup_ctr{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #8FD8EF;
+    color: black;
+    border: 2px dashed #0F2E3F;
+}
+
+.img{
+    max-width: 100%; 
+    height: auto;
+}
+
