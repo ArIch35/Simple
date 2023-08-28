@@ -1,0 +1,29 @@
+.title{
+    text-align: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    font-size: 35px;
+    margin: 10px 0px 10px 0px;
+    font-weight: bold;
+}
+
+.ctr_all,.ctr_title{
+    width: 98%;
+    height: fit-content;
+    margin-top: 1.5%;
+    margin-bottom: 0.5%;
+    margin-left: 0.6%;
+    border-radius: 20px;
+}
+
+.ctr_title{
+    background-color: #8FD8EF;
+}
+
+.sidebar{
+    width: 25px;
+    height: 25px;
+    margin: 20px;
+}
+

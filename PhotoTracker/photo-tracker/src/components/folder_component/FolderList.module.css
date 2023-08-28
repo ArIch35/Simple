@@ -1,0 +1,7 @@
+.ctr_folder{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 10px;
+    flex-wrap: wrap;
+}

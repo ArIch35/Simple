@@ -1,0 +1,38 @@
+.btn,.btn_dis{
+    font: inherit;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #FFDAB9;
+    color: white;
+    border: 1px solid #FFDAB9;
+    margin: 10px;
+    width: fit-content;
+}
+
+.btn_dis{
+    background-color: #ffdab962;
+    border: 1px solid #ffdab962;
+}
+
+.btn_cntr{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box_cntr, .inp_cntr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+}
+
+.inp_cntr{
+    margin-bottom: 10%;
+    align-self: center;
+    width: 90%;
+}
+
+.box_cntr{
+    width: 75%;
+    font-style: inherit;
+}

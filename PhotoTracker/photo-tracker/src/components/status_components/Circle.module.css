@@ -1,0 +1,44 @@
+.circle,.circle_complete {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color: rgb(24, 24, 25);
+    border-radius: 50%; 
+    text-align: center;
+    font-weight: 550;
+}
+
+.circle_complete{
+    animation: colorChange 1.5s forwards;
+}
+
+@keyframes colorChange {
+    0% {
+      background-color: rgb(255, 255, 255);
+      color: rgb(24, 24, 25);
+    }
+    50% {
+      background-color: rgb(128, 255, 128);
+      color: rgba(24, 24, 25, 0);
+    }
+    100% {
+      background-color: rgb(9, 255, 9);
+      color: rgb(24, 24, 25);
+    }
+  }
+
+.check_symbol {
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+  
+.check_symbol::before {
+    content: '\2713'; 
+    font-size: 18px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

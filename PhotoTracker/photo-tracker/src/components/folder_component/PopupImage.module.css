@@ -1,0 +1,7 @@
+.img{
+    max-width: 90%; /* Scale down the image to fit the container */
+    height: auto;
+    margin: 5px;
+    padding: auto;
+    border: 1px solid #0F2E3F;
+}

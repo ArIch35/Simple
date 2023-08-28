@@ -1,0 +1,17 @@
+.itm_ctr{
+    display: flex;
+    flex-direction: column;
+    background-color: #0F2E3F;
+    border-radius: 10px;
+    margin: 15px;
+    width: 400px;
+    text-align: center;
+    align-items: center;
+    color: rgb(225, 218, 218);
+    overflow: hidden;
+}
+
+.img{
+    width: 100%;
+    height: auto;
+}
