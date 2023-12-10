@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  django-webshop-data:
+    image: postgres:16.1-alpine
+    container_name: pizzashop-postgres
+    restart: on-failure
+    ports:
+      - ${DB_PORT:-5444}:5432
+    environment:
+      POSTGRES_DB: ${DB_NAME:-db_pizzashop}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    volumes:
+      - django-webshop-data:/var/lib/postgresql/data 
+
+volumes:
+  django-webshop-data:
+    driver: local

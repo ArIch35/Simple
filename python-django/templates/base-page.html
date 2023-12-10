@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Meine Pizzeria {%endblock title %} 
+{%block header%}
+<h1>Pizzeria dall'informatico</h1>
+<div class="pizzaleiste">
+  <div class="card-body">
+    <img
+      src="{% static 'images/pizzenleiste.png' %}"
+      width="800"
+      height="100"
+    />
+  </div>
+</div>
+<br />
+<h2>Willkommen bei der Pizzeria dall'informatico</h2>
+{%endblock header%}
+{% block content %}{% endblock content %}

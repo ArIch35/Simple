@@ -1,0 +1,17 @@
+{% extends "base-page.html" %} 
+{% load static %}
+{% block content %}
+<div>
+    <h1>Pizza-Bestellungen</h1>
+    <div>
+        {% for order in orders %}
+                {% include "components/custom-order.html" with pizzas=order.pizzas customer=order.customer price=order.total_price date=order.date time=order.time %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+{% block javascript %}
+<script>
+    
+</script>
+{% endblock javascript %}

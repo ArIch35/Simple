@@ -1,0 +1,7 @@
+.pizza{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000000;
+    margin: 20px 0px 20px 0px;
+    padding: 5px 0px 10px 10px;
+}
