@@ -16,10 +16,10 @@ class OrderView(TemplateView):
         return context
     
     def generate_orders(self, orders):
-        orders.sort(key=lambda x: x['customer'])
-        grouped_orders = {k: list(v) for k, v in groupby(orders, key=lambda x: x['customer'])}
+        orders.sort(key=lambda x: (x['customer'], x['time']))
+        grouped_orders = {k: list(v) for k, v in groupby(orders, key=lambda x: (x['customer'], x['time']))}
         valid_orders = []
-        for customer, orders in grouped_orders.items():
+        for (customer, _), orders in grouped_orders.items():
             pizzas = ""
             total_price = 0
             for index, order in enumerate(orders):
