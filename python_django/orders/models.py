@@ -22,5 +22,5 @@ class Order(models.Model):
     pizzas = models.ManyToManyField(Pizza)
     amount = models.IntegerField(default=1)
     total_price = models.FloatField()
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
     time = models.TimeField(default='00:00')

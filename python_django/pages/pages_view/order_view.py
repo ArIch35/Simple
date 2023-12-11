@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .common_functions import BASE_URL, generate_data_json, send_post_request
 from itertools import groupby
-from datetime import datetime
 
 
 class OrderView(TemplateView):
@@ -19,10 +18,8 @@ class OrderView(TemplateView):
     def generate_orders(self, orders):
         orders.sort(key=lambda x: x['customer'])
         grouped_orders = {k: list(v) for k, v in groupby(orders, key=lambda x: x['customer'])}
-        print(orders)
         valid_orders = []
         for customer, orders in grouped_orders.items():
-            date = datetime.strptime(orders[0]['date'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%B %d, %Y")
             pizzas = ""
             total_price = 0
             for index, order in enumerate(orders):
@@ -30,5 +27,5 @@ class OrderView(TemplateView):
                     continue
                 pizzas += f"{order['pizza_name']} ({order['amount']}x), " if index != len(orders) - 1 else f"{order['pizza_name']} ({order['amount']}x)"
                 total_price += order['total_price']
-            valid_orders.append(Order(customer, pizzas, total_price, date, orders[0]['time']))
+            valid_orders.append(Order(customer, pizzas, total_price, orders[0]["date"], orders[0]['time']))
         return valid_orders

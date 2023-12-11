@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 
 class Order:
@@ -7,3 +8,6 @@ class Order:
         self.total_price = total_price
         self.date = date
         self.time = time
+
+    def get_parsed_date(self):
+        return datetime.strptime(self.date, "%Y-%m-%d").strftime("%B %d, %Y")

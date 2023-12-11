@@ -56,3 +56,20 @@ def add_order(request):
     except Exception as e:
         print(e)
         return JsonResponse({'message': 'Order could not be created'}, status=401)
+    
+def delete_order(request):
+    if request.method != 'DELETE':
+        return JsonResponse({'message': 'Invalid request method'}, status=400)
+    data = json.loads(request.body)
+    customer = data.get('customer')
+    date = data.get('date')
+    time = data.get('time')
+    if not time or not date or not customer:
+        return JsonResponse({'message': 'Invalid request body'}, status=400)
+    try:
+        orders = Order.objects.filter(customer=customer,date=date, time=time)
+        orders.delete()
+        return JsonResponse({'message': 'Order successfully deleted'}, status=200)
+    except Order.DoesNotExist:
+        return JsonResponse({'message': 'Order does not exist'}, status=404)
+    

@@ -4,7 +4,45 @@
     <p>Preis: {{price}} €</p>
     <p>Datum: {{date}}, {{time}}</p>
     <div>
-        <button>Editieren</button>
-        <button>Löschen</button>
+        <button onclick="deleteHandler('{{customer}}', '{{unparsed_date}}','{{time}}')" >Löschen</button>
     </div>
 </div>
+{% block javascript %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function deleteHandler(customer, date, time) {
+        var csrftoken = getCookie('csrftoken');
+        $.ajax({
+            url: 'https://special-space-garbanzo-694wgrg4w9xc5x57-8000.app.github.dev/delete-order',
+            type: 'DELETE',
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            },
+            data: JSON.stringify({
+                customer: customer,
+                date: date,
+                time: time
+            }),
+            success: function(response) {
+                location.reload();
+                console.log(response);
+            }
+        });
+    }
+    </script>
+{% endblock javascript %}
