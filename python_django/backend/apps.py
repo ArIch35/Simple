@@ -2,9 +2,9 @@ from django.apps import AppConfig
 from psycopg2 import OperationalError
 
 
-class OrdersConfig(AppConfig):
+class BackendConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "orders"
+    name = "backend"
 
     def ready(self):
         from .models import Pizza  

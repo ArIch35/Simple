@@ -5,7 +5,7 @@ from .common_functions import BASE_URL, generate_data_json, send_post_request
 class UserInformationView(TemplateView):
     template_name = 'pages/kundendaten.html'
 
-    def post(self, request, _, **kwargs):
+    def post(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context["data"] = generate_data_json(request)
         context["message"] = self.get_alert_message(request, context)
