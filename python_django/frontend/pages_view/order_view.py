@@ -1,8 +1,7 @@
+import os
 from ..models import Order
 import requests
-from django.shortcuts import render
 from django.views.generic import TemplateView
-from .common_functions import BASE_URL, generate_data_json, send_post_request
 from itertools import groupby
 
 
@@ -11,8 +10,9 @@ class OrderView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        response = requests.get(f'{BASE_URL}/orders-get/')
+        response = requests.get(f'{os.environ["BASE_BACKEND_URL"]}/orders/')
         context['orders'] = self.generate_orders(response.json()) if response.status_code == 200 else []
+        context['url'] = os.environ["BASE_BACKEND_URL"]
         return context
     
     def generate_orders(self, orders):

@@ -5,7 +5,7 @@
     <h1>Pizza-Bestellungen</h1>
     <div>
         {% for order in orders %}
-                {% include "components/custom-order.html" with pizzas=order.pizzas customer=order.customer price=order.total_price date=order.get_parsed_date time=order.time unparsed_date=order.date %}
+                {% include "components/custom-order.html" with order=order url=url%}
         {% endfor %}
     </div>
 </div>

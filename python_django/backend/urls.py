@@ -2,9 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('pizzas/', views.get_all_pizza, name='get_all_pizza'),
-    path('users/', views.add_user, name='add_user'),
-    path('orders/', views.add_order, name='add_order'),
-    path('orders-get/', views.get_all_orders, name='get_all_orders'),
-    path('delete-order/', views.delete_order, name='delete_order'),
+    path('pizzas/', views.PizzaAPIView.as_view(), name='get_all_pizza'),
+    path('users/', views.UserAPIView.as_view(), name='user_api_view'),
+    path('orders/', views.OrderAPIView.as_view(), name='order_api_view'),
 ]

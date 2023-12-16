@@ -1,6 +1,5 @@
 import json
 import requests
-BASE_URL = 'https://special-space-garbanzo-694wgrg4w9xc5x57-8000.app.github.dev'
 
 def generate_data_json(request):
         data = dict(request.POST.lists())

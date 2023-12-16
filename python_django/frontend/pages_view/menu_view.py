@@ -1,7 +1,8 @@
+import os
 import requests
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .common_functions import BASE_URL, generate_data_json, send_post_request
+from .common_functions import generate_data_json, send_post_request
 
 class MenuView(TemplateView):
     template_name = 'pages/speisekarte.html'
@@ -9,7 +10,7 @@ class MenuView(TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        response = requests.get(f'{BASE_URL}/pizzas/')
+        response = requests.get(f'{os.environ["BASE_BACKEND_URL"]}/pizzas/')
         context['pizzas'] = response.json() if response.status_code == 200 else []
         return context
     
@@ -27,8 +28,8 @@ class MenuView(TemplateView):
             return "Bitte geben Sie eine gültige Email ein"
         if len(self.selected_pizzas) == 0:
             return "Bitte wählen Sie mindestens eine Pizza aus"
-        status_code = send_post_request(f'{BASE_URL}/orders/',request.COOKIES.get('csrftoken'), self.generate_request_body(request))
-        if status_code != 200:
+        status_code = send_post_request(f'{os.environ["BASE_BACKEND_URL"]}/orders/',request.COOKIES.get('csrftoken'), self.generate_request_body(request))
+        if status_code != 201:
             return self.get_post_result_message(status_code)
         context["data"] = {}
         return "Vielen Dank für Ihre Bestellung"

@@ -1,75 +1,41 @@
 import json
-from django.http import JsonResponse
-from django.db.models import F
-from .models import Pizza, Customer, Order
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializer import PizzaSerializer, UserSerializer, OrderSerializer, OrderDeleteSerializer
 
-def get_all_pizza(_):
-    pizzas = Pizza.objects.all()
-    return JsonResponse(list(pizzas.values('name', 'price')), safe=False)
-
-def get_all_orders(_):
-    orders = Order.objects.annotate(pizza_name=F('pizzas__name')).values('customer', 'pizza_name', 'amount', 'total_price', 'date', 'time')
-    return JsonResponse(list(orders), safe=False)
-
-def add_user(request):
-    if request.method != 'POST':
-        return JsonResponse({'message': 'Invalid request method'}, status=400)
-    data = json.loads(request.body)
-    firstname = data.get('firstname')
-    lastname = data.get('lastname')
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password')
-    postcode = data.get('postcode')
-    city = data.get('city')
-    address = data.get('address')
-    if not firstname or not lastname or not username or not email or not password or not postcode or not city or not address:
-        return JsonResponse({'message': 'Invalid request body'}, status=400)
-    try:
-        user = Customer.objects.create(firstname=firstname, lastname=lastname, username=username, email=email, password=password, postcode=postcode, city=city, address=address)
-        user.save()
-        return JsonResponse({'message': 'User successfully created'}, status=201)
-    except Exception as e:
-        print(e)
-        return JsonResponse({'message': 'User already exists'}, status=401)
-
-def add_order(request):
-    if request.method != 'POST':
-        return JsonResponse({'message': 'Invalid request method'}, status=400)
-    data = json.loads(request.body)
-    time = data.get('time')
-    email = data.get('email')
-    pizzas = data.get('pizzas')
-    if not time or not email or not pizzas:
-        return JsonResponse({'message': 'Invalid request body'}, status=400)
-    pizzas = [(list(pizza.keys())[0], int(list(pizza.values())[0])) for pizza in pizzas]
-    try:
-        user = Customer.objects.get(email=email)
-        for pizza_name, amount in pizzas:
-            pizza = Pizza.objects.get(name=pizza_name)
-            order = user.order_set.create(amount=amount, total_price=round(pizza.price * amount, 2), time=time)
-            order.pizzas.set([pizza])
-            order.save()
-        return JsonResponse({'message': 'Order successfully created'}, status=200)
-    except Customer.DoesNotExist:
-        return JsonResponse({'message': 'User does not exist'}, status=404)
-    except Exception as e:
-        print(e)
-        return JsonResponse({'message': 'Order could not be created'}, status=401)
+class UserAPIView(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            if serializer.exists(request.data):
+                return Response({'message': 'User already exists'}, status=401)
+            serializer.create(request.data)
+            return Response({'message': 'User successfully created'}, status=201)
+        return Response({'message': 'Invalid request body'}, status=400)
     
-def delete_order(request):
-    if request.method != 'DELETE':
-        return JsonResponse({'message': 'Invalid request method'}, status=400)
-    data = json.loads(request.body)
-    customer = data.get('customer')
-    date = data.get('date')
-    time = data.get('time')
-    if not time or not date or not customer:
-        return JsonResponse({'message': 'Invalid request body'}, status=400)
-    try:
-        orders = Order.objects.filter(customer=customer,date=date, time=time)
-        orders.delete()
-        return JsonResponse({'message': 'Order successfully deleted'}, status=200)
-    except Order.DoesNotExist:
-        return JsonResponse({'message': 'Order does not exist'}, status=404)
+class OrderAPIView(APIView):
+    def get(self, _):
+        return Response(OrderSerializer().get_all_orders(), status=200)
+
+    def post(self, request):
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
+            if not serializer.customer_exists(request.data):
+                return Response({'message': 'User does not exist'}, status=404)
+            serializer.create(request.data)
+            return Response({'message': 'Order successfully created'}, status=201)
+        return Response({'message': 'Invalid request body'}, status=400)
     
+    def delete(self, request):
+        data = json.loads(list(request.data.keys())[0])
+        serializer = OrderDeleteSerializer(data=data)
+        if serializer.is_valid():
+            if not serializer.order_exists(data):
+                return Response({'message': 'Order does not exist'}, status=404)
+            serializer.delete(data)
+            return Response({'message': 'Order successfully deleted'}, status=200)
+        return Response({'message': 'Invalid request body'}, status=400)
+    
+class PizzaAPIView(APIView):
+    def get(self, _):
+        return Response(PizzaSerializer().get_all_pizza(), status=200)

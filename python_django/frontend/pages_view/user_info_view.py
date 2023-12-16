@@ -1,6 +1,7 @@
+import os
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .common_functions import BASE_URL, generate_data_json, send_post_request
+from .common_functions import generate_data_json, send_post_request
 
 class UserInformationView(TemplateView):
     template_name = 'pages/kundendaten.html'
@@ -24,7 +25,7 @@ class UserInformationView(TemplateView):
             return "Bitte geben Sie Ihre Stadt ein"
         if request.POST.get('address') == '':
             return "Bitte geben Sie Ihre Adresse ein"
-        status_code = send_post_request(f'{BASE_URL}/users/',request.COOKIES.get('csrftoken'), self.generate_request_body(request))
+        status_code = send_post_request(f'{os.environ["BASE_BACKEND_URL"]}/users/',request.COOKIES.get('csrftoken'), self.generate_request_body(request))
         if status_code != 201:
             return self.get_post_result_message(status_code)
         context["data"] = {}

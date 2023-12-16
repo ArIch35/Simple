@@ -1,10 +1,10 @@
 <div>
-    <p>Pizzas: {{pizzas}}</p>
-    <p>Kunde: {{customer}}</p>
-    <p>Preis: {{price}} €</p>
-    <p>Datum: {{date}}, {{time}}</p>
+    <p>Pizzas: {{order.pizzas}}</p>
+    <p>Kunde: {{order.customer}}</p>
+    <p>Preis: {{order.total_price}} €</p>
+    <p>Datum: {{order.get_parsed_date}}, {{order.time}}</p>
     <div>
-        <button onclick="deleteHandler('{{customer}}', '{{unparsed_date}}','{{time}}')" >Löschen</button>
+        <button onclick="deleteHandler('{{order.customer}}', '{{order.date}}','{{order.time}}')" >Löschen</button>
     </div>
 </div>
 {% block javascript %}
@@ -28,7 +28,7 @@
     function deleteHandler(customer, date, time) {
         var csrftoken = getCookie('csrftoken');
         $.ajax({
-            url: 'https://special-space-garbanzo-694wgrg4w9xc5x57-8000.app.github.dev/delete-order',
+            url: '{{url}}/orders/',
             type: 'DELETE',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader("X-CSRFToken", csrftoken);
